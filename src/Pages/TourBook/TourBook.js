@@ -61,7 +61,7 @@ const TourBook = () => {
                 </div>
             </form>
             <div className="form-control mt-6">
-                <button className="btn btn-warning w-1/4">Login</button>
+                <button className="btn btn-warning w-1/4 ml-auto mr-auto">Book Now</button>
             </div>
         </div>
     );
