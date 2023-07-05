@@ -1,0 +1,22 @@
+[
+    {
+        "img": "https://images.unsplash.com/photo-1608958435020-e8a7109ba809?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80",
+        "title": "Cox's Bazar",
+        "details": "The beach in Cox's Bazar has a gentle slope and with an unbroken length of 155 km (96 mi) it is often termed the 'longest natural unbroken sea beach' in the world."
+    },
+    {
+        "img": "https://images.unsplash.com/photo-1658383895221-173f07c6a9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+        "title": "Sajek",
+        "details": "Sajek is a popular tourist destination located in the Rangamati Hill District of Bangladesh. It is a remote hill station nestled in the lush greenery of the Chittagong Hill Tracts region. "
+    },
+    {
+        "img": "https://images.unsplash.com/photo-1642179335770-82d5ffc4b439?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+        "title": "Rangamati",
+        "details": "Rangamati is a district located in southeastern Bangladesh. It is situated in the Chittagong Hill Tracts region, which is known for its scenic beauty and diverse indigenous cultures."
+    },
+    {
+        "img": "https://images.unsplash.com/photo-1558673810-9b0b6316d4f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+        "title": "Bandarban",
+        "details": "Bandarban is a district located in the southeastern part of Bangladesh. It is one of the three districts that make up the Chittagong Hill Tracts, which is a mountainous region known for its natural beauty."
+    }
+]
