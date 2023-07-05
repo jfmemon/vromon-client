@@ -1,61 +1,70 @@
 import React from 'react';
 
-const TourBook = () => {
+const TakeATour = () => {
+
+    const handleTourPackage = event => {
+
+    }
+
     return (
         <div className='my-10'>
-            <form className="card-body">
+            <form onSubmit={handleTourPackage} className="card-body">
                 <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-5'>
                     <div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" className="input input-bordered w-3/4" />
+                            <input name='name' type="text" className="input input-bordered w-3/4" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" className="input input-bordered w-3/4" />
+                            <input name='email' type="email" className="input input-bordered w-3/4" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Phone Number</span>
                             </label>
-                            <input type="number" className="input input-bordered w-3/4" />
+                            <input name='phone' type="number" className="input input-bordered w-3/4" />
                         </div>
-                    </div>
-                    <div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Destination</span>
                             </label>
-                            <input type="text" className="input input-bordered w-3/4" placeholder='From' /><br />
-                            <input type="text" className="input input-bordered w-3/4" placeholder='To' />
+                            <input name='from' type="text" className="input input-bordered w-3/4" placeholder='From' /><br />
+                            <input name='to' type="text" className="input input-bordered w-3/4" placeholder='To' />
                         </div>
+                    </div>
+                    <div>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Date</span>
                             </label>
-                            <input type="date" className="input input-bordered w-3/4" />
+                            <input name='date' type="date" className="input input-bordered w-3/4" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Person</span>
                             </label>
-                            <input type="number" className="input input-bordered w-3/4" />
+                            <input name='person' type="number" className="input input-bordered w-3/4" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Hotel</span>
                             </label>
-                            <input type="option" className="input input-bordered w-3/4" />
+                            <input name='hotel' type="option" className="input input-bordered w-3/4" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Room type</span>
                             </label>
-                            <input type='option' className="input input-bordered w-3/4" />
+                            <input name='room' type='option' className="input input-bordered w-3/4" />
+                        </div>
+                        <div>
+                            <h3>Total price: </h3>
                         </div>
                     </div>
                 </div>
@@ -67,4 +76,4 @@ const TourBook = () => {
     );
 };
 
-export default TourBook;
+export default TakeATour;
