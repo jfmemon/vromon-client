@@ -1,0 +1,20 @@
+[
+    {
+        "img": "https://www.bandarbantours.com/wp-content/uploads/2013/02/Hotel-Hill-View-Bandarban.jpg",
+        "title": "Hotel Hill View",
+        "details": "Set in Bāndarban, Hotel Hill View features 3-star accommodation with private balconies.",
+        "price": 2711
+    },
+    {
+        "img": "https://bono-nibash-hill-resort-bandarban-bd.booked.net/data/Photos/OriginalPhoto/13378/1337826/1337826536/Bono-Nibash-Hill-Resort-Bandarban-Exterior.JPEG",
+        "title": "Bono Nibash Hill Resort",
+        "details": "Located in Bāndarban, Bono Nibash Hill Resort offers 3-star accommodation with a garden and a restaurant. This 3-star resort offers room service and a 24-hour front desk.",
+        "price": 3189
+    },
+    {
+        "img": "https://lh3.googleusercontent.com/p/AF1QipOGPcvQybBfoZMujoD6-PIaXWyffAWBpNqEYJDx=w1080-h608-p-no-v0",
+        "title": "Fanush Resort",
+        "details": "Situated in Bāndarban, Fanush Resort offers 3-star accommodation with a garden, a terrace and a restaurant. This 3-star hotel offers room service. All rooms have a patio with mountain views.",
+        "price": 2711
+    }
+]

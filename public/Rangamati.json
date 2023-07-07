@@ -1,0 +1,20 @@
+[
+    {
+        "img": "https://www.booked.net/data/Photos/380x200/14143/1414373/1414373150/Hotel-Hill-Ambassador-Rangamati-Exterior.JPEG",
+        "title": "Hotel Prince",
+        "details": "Hotel Prince is offering accommodation in Rāngāmāti. Guests can enjoy city views. All guest rooms at the hotel come with a flat-screen TV and a safety deposit box.",
+        "price": 2075
+    },
+    {
+        "img": "https://vromonbuzz.com/uploads/images/hotels/slider/thumbs/349795_Hotel-Hill-Ambassador-Rangamati-Bangladesh.jpg",
+        "title": "Hotel Hill Ambassador",
+        "details": "Hotel Hill Ambassador is a 2-star property located in Rāngāmāti. Each accommodation at the 2-star hotel has city views, and guests can enjoy access to a terrace and to a restaurant.",
+        "price": 3529
+    },
+    {
+        "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/7e/e3/bf/hotel-green-castle.jpg?w=700&h=-1&s=1",
+        "title": "Hotel Green Castle",
+        "details": "Hotel Green Castle is located in Rāngāmāti. The hotel also provides free WiFi and free private parking. The reception at the hotel can provide tips on the area.",
+        "price": 2511
+    }
+]

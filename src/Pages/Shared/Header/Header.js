@@ -8,16 +8,14 @@ const Header = () => {
     const handleLogout = () => {
         logout()
             .then()
-            .catch()
+            .catch(err => console.error(err))
     }
 
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <>
-            <li className='font-semibold'><Link to='/takeATour'>Take a tour</Link></li>
-            <li className='font-semibold'><Link to='/aboutUs'>About Us</Link></li>
-            <li className='font-semibold'><Link to='/contactUs'>Contact Us</Link></li>
-        </>
+        <li className='font-semibold'><Link to='/takeATour'>Take a tour</Link></li>
+        <li className='font-semibold'><Link to='/aboutUs'>About Us</Link></li>
+        <li className='font-semibold'><Link to='/contactUs'>Contact Us</Link></li>
     </>
 
     return (
@@ -41,12 +39,22 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/login">
-                    <button className="btn btn-outline btn-warning mr-2">Log In</button>
-                </Link>
-                <Link to="/signup">
-                    <button className="btn btn-warning">Sign Up</button>
-                </Link>
+                {
+                    user?.email ?
+                        <>
+                            <button onClick={handleLogout} className="btn btn-warning">Log Out</button>
+                        </>
+                        :
+                        <>
+                            <Link to="/login">
+                                <button className="btn btn-outline btn-warning mr-2">Log In</button>
+                            </Link>
+                            <Link to="/signup">
+                                <button className="btn btn-warning">Sign Up</button>
+                            </Link>
+                        </>
+
+                }
             </div>
         </div>
     );

@@ -1,0 +1,20 @@
+[
+    {
+        "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/120397144.jpg?k=ca74ce65d75e5c0abe4a14b79923353a5920164cefb9160580b06868c236c4cc&o=&hp=1",
+        "title": "Hotel Sea Crown",
+        "details": "Situated on the beachfront and offering a 24-hour front desk, Hotel Sea Crown is located just 1.5 km from the famous Sugandha Beach. Free WiFi access is available. ",
+        "price": 2711
+    },
+    {
+        "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/28/49/a4/long-beach-hotel.jpg?w=700&h=-1&s=1",
+        "title": "Long Beach Hotel",
+        "details": "Offering an indoor pool, a fitness centre and a spa and wellness centre, Long Beach Hotel is located 3.3 km from the Cox's Bazar Airport and Local Bus Station.",
+        "price": 4989
+    },
+    {
+        "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/64/1e/94/best-western-plus-heritage.jpg?w=700&h=-1&s=1",
+        "title": "Best Western Heritage",
+        "details": "Set in Cox's Bazar, Best Western Heritage offers 4-star accommodation with a garden. This 4-star hotel offers a concierge service and luggage storage space.",
+        "price": "2711"
+    }
+]

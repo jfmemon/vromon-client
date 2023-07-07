@@ -1,11 +1,40 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 const Login = () => {
+    const { login, user } = useContext(AuthContext);
+
+    // const location = useLocation();
+    // const navigate = useNavigate();
+    // const from = location.state?.from?.pathname || "/";
 
     const handleLogin = (event) => {
         event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        login(email, password)
+            .then(result => {
+                const userCheck = result.user;
+                console.log(userCheck);
+                // if (userProvided === user) {
+                //     // navigate(from, { replace: true });
+                //     alert('Login successful.')
+                // }
+                // else {
+                //     alert('Wrong information.')
+                // }
+                form.reset();
+            })
+
+            .catch(err => {
+                console.error(err);
+            })
 
     }
+
 
     return (
         <div className="hero bg-base-200">
@@ -16,15 +45,15 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" className="input input-bordered" />
+                            <input name='email' type="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" className="input input-bordered" />
+                            <input name='password' type="password" className="input input-bordered" />
                             <label className="label">
-                                <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
+                                <Link to="" className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
                         </div>
                         <div className="form-control mt-6">
