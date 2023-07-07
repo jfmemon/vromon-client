@@ -1,17 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main";
 import Home from "../../Pages/Home/Home/Home";
-import Destination from "../../Pages/Home/Destination/Destination";
 import ContactUs from "../../Pages/ContactUs/ContactUs";
 import AboutUs from "../../Pages/AboutUs/AboutUs";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
-import TourBook from "../../Pages/TakeATour/TakeATour";
 import TakeATour from "../../Pages/TakeATour/TakeATour";
-import Coxbazar from "../../Pages/Hotels/Coxbazar/Coxbazar";
-import Rangamati from "../../Pages/Hotels/Rangamati/Rangamati";
-import Bandarban from "../../Pages/Hotels/Bandarban/Bandarban";
-import Sajek from "../../Pages/Hotels/Sajek/Sajek";
+import Hotels from "../../Pages/Hotels/Hotels";
 
 const router = createBrowserRouter([
     {
@@ -43,33 +38,13 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
-                path: "/coxbazar",
-                element: <Coxbazar></Coxbazar>,
-                loader: () => {
-                    return fetch("http://localhost:5000/coxbazar")
-                }
-            },
-            {
-                path: "/rangamati",
-                element: <Rangamati></Rangamati>,
-                loader: () => {
-                    return fetch("http://localhost:5000/rangamati")
-                }
-            },
-            {
-                path: "/bandarban",
-                element: <Bandarban></Bandarban>,
-                loader: () => {
-                    return fetch("http://localhost:5000/bandarban")
-                }
-            },
-            {
-                path: "/sajek",
-                element: <Sajek></Sajek>,
-                loader: () => {
-                    return fetch("http://localhost:5000/sajek")
+                path: "/hotels/:id",
+                element: <Hotels></Hotels>,
+                loader: ({ params }) => {
+                    return fetch(`http://localhost:5000/destinations/${params.id}`)
                 }
             }
+
         ]
     }
 ])

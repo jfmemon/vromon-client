@@ -2,21 +2,99 @@
     {
         "img": "https://images.unsplash.com/photo-1608958435020-e8a7109ba809?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80",
         "title": "Cox's Bazar",
-        "details": "The beach in Cox's Bazar has a gentle slope and with an unbroken length of 155 km (96 mi) it is often termed the 'longest natural unbroken sea beach' in the world."
+        "details": "The beach in Cox's Bazar has a gentle slope and with an unbroken length of 155 km (96 mi) it is often termed the 'longest natural unbroken sea beach' in the world.",
+        "hotels": [
+            {
+                "id": 1,
+                "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/120397144.jpg?k=ca74ce65d75e5c0abe4a14b79923353a5920164cefb9160580b06868c236c4cc&o=&hp=1",
+                "title": "Hotel Sea Crown",
+                "details": "Situated on the beachfront and offering a 24-hour front desk, Hotel Sea Crown is located just 1.5 km from the famous Sugandha Beach. Free WiFi access is available. ",
+                "price": 2711
+            },
+            {
+                "id": 2,
+                "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/28/49/a4/long-beach-hotel.jpg?w=700&h=-1&s=1",
+                "title": "Long Beach Hotel",
+                "details": "Offering an indoor pool, a fitness centre and a spa and wellness centre, Long Beach Hotel is located 3.3 km from the Cox's Bazar Airport and Local Bus Station.",
+                "price": 4989
+            },
+            {
+                "id": 3,
+                "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/64/1e/94/best-western-plus-heritage.jpg?w=700&h=-1&s=1",
+                "title": "Best Western Heritage",
+                "details": "Set in Cox's Bazar, Best Western Heritage offers 4-star accommodation with a garden. This 4-star hotel offers a concierge service and luggage storage space.",
+                "price": 2711
+            }
+        ]
     },
     {
         "img": "https://images.unsplash.com/photo-1658383895221-173f07c6a9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
         "title": "Sajek",
-        "details": "Sajek is a popular tourist destination located in the Rangamati Hill District of Bangladesh. It is a remote hill station nestled in the lush greenery of the Chittagong Hill Tracts region. "
+        "details": "Sajek is a popular tourist destination located in the Rangamati Hill District of Bangladesh. It is a remote hill station nestled in the lush greenery of the Chittagong Hill Tracts region. ",
+        "hotels": [
+            {
+                "id": 1,
+                "img": "https://sajek.hoteldmore.com/images/hotel_1.jpeg",
+                "title": "D' more Sajek Valley Hotel & Resort",
+                "details": "D' more Sajek Valley Hotel & Resort is a 3-star property set in Māhmuam. This 3-star hotel offers room service and a 24-hour front desk. The hotel features family rooms.",
+                "price": 2711
+            }
+        ]
     },
     {
         "img": "https://images.unsplash.com/photo-1642179335770-82d5ffc4b439?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
         "title": "Rangamati",
-        "details": "Rangamati is a district located in southeastern Bangladesh. It is situated in the Chittagong Hill Tracts region, which is known for its scenic beauty and diverse indigenous cultures."
+        "details": "Rangamati is a district located in southeastern Bangladesh. It is situated in the Chittagong Hill Tracts region, which is known for its scenic beauty and diverse indigenous cultures.",
+        "hotels": [
+            {
+                "id": 1,
+                "img": "https://www.booked.net/data/Photos/380x200/14143/1414373/1414373150/Hotel-Hill-Ambassador-Rangamati-Exterior.JPEG",
+                "title": "Hotel Prince",
+                "details": "Hotel Prince is offering accommodation in Rāngāmāti. Guests can enjoy city views. All guest rooms at the hotel come with a flat-screen TV and a safety deposit box.",
+                "price": 2075
+            },
+            {
+                "id": 2,
+                "img": "https://vromonbuzz.com/uploads/images/hotels/slider/thumbs/349795_Hotel-Hill-Ambassador-Rangamati-Bangladesh.jpg",
+                "title": "Hotel Hill Ambassador",
+                "details": "Hotel Hill Ambassador is a 2-star property located in Rāngāmāti. Each accommodation at the 2-star hotel has city views, and guests can enjoy access to a terrace and to a restaurant.",
+                "price": 3529
+            },
+            {
+                "id": 3,
+                "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/7e/e3/bf/hotel-green-castle.jpg?w=700&h=-1&s=1",
+                "title": "Hotel Green Castle",
+                "details": "Hotel Green Castle is located in Rāngāmāti. The hotel also provides free WiFi and free private parking. The reception at the hotel can provide tips on the area.",
+                "price": 2511
+            }
+        ]
     },
     {
         "img": "https://images.unsplash.com/photo-1558673810-9b0b6316d4f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
         "title": "Bandarban",
-        "details": "Bandarban is a district located in the southeastern part of Bangladesh. It is one of the three districts that make up the Chittagong Hill Tracts, which is a mountainous region known for its natural beauty."
+        "details": "Bandarban is a district located in the southeastern part of Bangladesh. It is one of the three districts that make up the Chittagong Hill Tracts, which is a mountainous region known for its natural beauty.",
+        "hotels": [
+            {
+                "id": 1,
+                "img": "https://www.bandarbantours.com/wp-content/uploads/2013/02/Hotel-Hill-View-Bandarban.jpg",
+                "title": "Hotel Hill View",
+                "details": "Set in Bāndarban, Hotel Hill View features 3-star accommodation with private balconies.",
+                "price": 2711
+            },
+            {
+                "id": 2,
+                "img": "https://bono-nibash-hill-resort-bandarban-bd.booked.net/data/Photos/OriginalPhoto/13378/1337826/1337826536/Bono-Nibash-Hill-Resort-Bandarban-Exterior.JPEG",
+                "title": "Bono Nibash Hill Resort",
+                "details": "Located in Bāndarban, Bono Nibash Hill Resort offers 3-star accommodation with a garden and a restaurant. This 3-star resort offers room service and a 24-hour front desk.",
+                "price": 3189
+            },
+            {
+                "id": 3,
+                "img": "https://lh3.googleusercontent.com/p/AF1QipOGPcvQybBfoZMujoD6-PIaXWyffAWBpNqEYJDx=w1080-h608-p-no-v0",
+                "title": "Fanush Resort",
+                "details": "Situated in Bāndarban, Fanush Resort offers 3-star accommodation with a garden, a terrace and a restaurant. This 3-star hotel offers room service. All rooms have a patio with mountain views.",
+                "price": 2711
+            }
+        ]
     }
 ]
