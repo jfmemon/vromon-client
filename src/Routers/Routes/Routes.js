@@ -7,7 +7,7 @@ import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
 import TakeATour from "../../Pages/TakeATour/TakeATour";
 import Hotels from "../../Pages/Hotels/Hotels";
-import HotelCollection from "../../Pages/HotelCollection/HotelCollection";
+import ServiceList from './../../Pages/ServiceList/ServiceList';
 
 const router = createBrowserRouter([
     {
@@ -46,10 +46,10 @@ const router = createBrowserRouter([
                 }
             },
             {
-                path: "/hotelCollection",
-                element: <HotelCollection></HotelCollection>,
-                loader: () => {
-                    return fetch("http://localhost:5000/hotels");
+                path: "/serviceCollection/:id",
+                element: <ServiceList></ServiceList>,
+                loader: ({params}) => {
+                    return fetch(`http://localhost:5000/services/${params.id}`);
                 }
             }
 

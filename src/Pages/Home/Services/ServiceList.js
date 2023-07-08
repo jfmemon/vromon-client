@@ -9,7 +9,7 @@ const ServiceList = ({ service }) => {
             <div className="card-body">
                 <h2 className="card-title font-semibold">{title}</h2>
                 <div className="card-actions justify-end">
-                    <Link to={`/hotelCollection/${_id}`}>
+                    <Link to={`/serviceCollection/${_id}`}>
                         <button className="btn btn-outline btn-warning">Explore Now</button>
                     </Link>
                 </div>
