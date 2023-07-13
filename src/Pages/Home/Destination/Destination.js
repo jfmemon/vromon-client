@@ -4,7 +4,7 @@ import DestinationList from './DestinationList';
 const Destination = () => {
     const [destinations, setDestinations] = useState([]);
 
-    fetch('http://localhost:5000/destinations')
+    fetch('https://vromon-server-roan.vercel.app/destinations')
     .then(res => res.json())
     .then(data => {
         setDestinations(data);

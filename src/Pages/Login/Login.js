@@ -19,13 +19,6 @@ const Login = () => {
             .then(result => {
                 const userCheck = result.user;
                 console.log(userCheck);
-                // if (userProvided === user) {
-                //     // navigate(from, { replace: true });
-                //     alert('Login successful.')
-                // }
-                // else {
-                //     alert('Wrong information.')
-                // }
                 form.reset();
             })
 

@@ -4,7 +4,7 @@ import ServiceList from './ServiceList';
 const Services = () => {
     const [services, setServices] = useState([]);
 
-    fetch('http://localhost:5000/services')
+    fetch('https://vromon-server-roan.vercel.app/services')
     .then(res => res.json())
     .then(data => {
         setServices(data);
