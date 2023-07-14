@@ -1,30 +1,40 @@
 import React, { useContext, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Checkout = () => {
     const { user } = useContext(AuthContext);
     const location = useLocation();
     const hotelDetails = location.state?.hotelDetails;
-    const { id, img, title, details, price } = hotelDetails;
+    const { id, img, title, price } = hotelDetails;
     const [hotelBookings, setHotelBookings] = useState([]);
-    const [hotelPrice, setHotelPrice] = useState();
+    const [hotelPrice, setHotelPrice] = useState(0);
 
     const handleHotelBookings = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const phone = form.phoneNumber.value;
         const email = user?.email;
+        const phone = form.phone.value;
+        const checkIn = form.checkIn.value;
+        const checkOut = form.checkOut.value;
+        const person = form.person.value;
+        const roomType = form.roomType.value;
+
 
         const order = {
-            service: id,
-            serviceName: title,
-            price: hotelBookings.price, // Updated price
-            customer: name,
-            phone,
-            email
+            hotelId: id,
+            hotelName: title,
+            customerName: name,
+            email: email,
+            phone: phone,
+            checkIn: checkIn,
+            checkOut: checkOut,
+            person: person,
+            roomType: roomType,
+            price: hotelPrice,
         };
+
 
         fetch('https://vromon-server-roan.vercel.app/hotelBookings', {
             method: 'POST',
@@ -36,27 +46,20 @@ const Checkout = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
+                    alert('Hotel booked successfully.');
                     form.reset();
-                    alert('Order placed successfully.');
                 }
             })
             .catch(err => console.error(err))
     }
 
+
     const handleInput = event => {
         event.preventDefault();
         const fieldName = event.target.name;
         const value = event.target.value;
-        const newHotelBookings = { ...hotelBookings }; // Create a copy of hotelBookings object
+        const newHotelBookings = { user, ...hotelBookings }; // Create a copy of hotelBookings object
         newHotelBookings[fieldName] = value;
-
-        // Update the price based on the selected option
-        if (fieldName === 'roomType') {
-            const selectedRoomType = event.target.options[event.target.selectedIndex].value;
-            const roomTypePrice = selectedRoomType === 'DB' ? price + 1000 : price;
-            newHotelBookings.price = roomTypePrice;
-        }
-
         setHotelBookings(newHotelBookings);
     };
 
@@ -77,7 +80,6 @@ const Checkout = () => {
     }
 
 
-
     return (
         <div>
             <h3 className='text-3xl font-semibold text-center my-5'>-Confirmation Page-</h3>
@@ -91,7 +93,7 @@ const Checkout = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input onBlur={handleInput} defaultValue={user?.name} readOnly name='name' type="text" className="input input-bordered w-3/4" />
+                            <input onBlur={handleInput} name='name' type="text" className="input input-bordered w-3/4" />
                         </div>
                         <div className="form-control lg:w-2/3 sm:w-full">
                             <label className="label">

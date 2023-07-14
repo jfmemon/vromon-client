@@ -16,8 +16,8 @@ const SignUp = () => {
         signup(name, email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                toast.success('Signup successful.');
+                // console.log(user);
+                // alert('Signup successful.');
                 // alert('Registration completed.');
                 form.reset();
             })

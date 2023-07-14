@@ -20,6 +20,7 @@ const Login = () => {
                 const userCheck = result.user;
                 console.log(userCheck);
                 form.reset();
+                alert("Login successful.")
             })
 
             .catch(err => {
@@ -38,13 +39,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input name='email' type="email" className="input input-bordered" required/>
+                            <input name='email' type="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input name='password' type="password" className="input input-bordered" required/>
+                            <input name='password' type="password" className="input input-bordered" required />
                             <label className="label">
                                 <Link to="" className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
