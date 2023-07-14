@@ -58,19 +58,19 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input onBlur={handleInput} name='name' type="text" className="input input-bordered" />
+                            <input onBlur={handleInput} name='name' type="text" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input onBlur={handleInput} name='email' type="email" className="input input-bordered" />
+                            <input onBlur={handleInput} name='email' type="email" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input onBlur={handleInput} name='password' type="password" className="input input-bordered" />
+                            <input onBlur={handleInput} name='password' type="password" className="input input-bordered" required/>
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn btn-warning" type="submit" value="Sign Up" />
