@@ -11,6 +11,9 @@ import ServiceList from './../../Pages/ServiceList/ServiceList';
 import DashboardLayout from "../../Layouts/DashboardLayout";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
 import Checkout from "../../Pages/Checkout/Checkout";
+import BusDetailsCheckout from "../../Pages/ServiceList/BusDetailsCheckout";
+import HotelDetailsCheckout from "../../Pages/ServiceList/HotelDetailsCheckout";
+import FlightDetailsCheckout from "../../Pages/ServiceList/FlightDetailsCheckout";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +54,21 @@ const router = createBrowserRouter([
             {
                 path: "/checkout/:checkoutId",
                 element: <Checkout></Checkout>,
+            },
+
+            {
+                path: "/busDetailsCheckout/:checkoutId",
+                element: <BusDetailsCheckout></BusDetailsCheckout>
+            },
+
+            {
+                path:"/hotelDetailsCheckout/:checkoutId",
+                element: <HotelDetailsCheckout></HotelDetailsCheckout>
+            },
+
+            {
+                path: "/flightDetailsCheckout/:checkoutId",
+                element: <FlightDetailsCheckout></FlightDetailsCheckout>
             },
 
             {

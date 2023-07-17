@@ -44,5 +44,3 @@ const ServiceList = () => {
 };
 
 export default ServiceList;
-
-{/* <BusDetails key={service.id} service={service}></BusDetails> */}
