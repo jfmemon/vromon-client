@@ -20,8 +20,8 @@ const FlightDetailsCheckout = () => {
         const departure = form.departure.value;
         const arrival = form.arrival.value;
         const person = form.person.value;
-        const busName = form.busName.value;
-        const busType = form.busType.value;
+        const flightName = form.flightName.value;
+        const flightType = form.flightType.value;
         const from = form.from.value;
         const to = form.to.value;
 
@@ -33,16 +33,16 @@ const FlightDetailsCheckout = () => {
             phone: phone,
             from: from,
             to: to,
-            checkIn: departure,
-            checkOut: arrival,
+            departure: departure,
+            arrival: arrival,
             person: person,
-            busName: busName,
-            roomType: busType,
+            flightName: flightName,
+            flightType: flightType,
             price: flightPrice,
         };
 
 
-        fetch('https://vromon-server-roan.vercel.app/busTicketBookings', {
+        fetch('https://vromon-server-roan.vercel.app/flightTicketBookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -156,7 +156,7 @@ const FlightDetailsCheckout = () => {
                             <label className="label">
                                 <span className="label-text">Flight name</span>
                             </label>
-                            <input onBlur={handleInput} name='busName' defaultValue={name} readOnly type="option" className="input input-bordered w-3/4" />
+                            <input onBlur={handleInput} name='flightName' defaultValue={name} readOnly type="option" className="input input-bordered w-3/4" />
                         </div>
                         <div className="form-control lg:w-2/3 sm:w-full">
                             <label htmlFor="hotelDetails" className="label">
@@ -164,7 +164,7 @@ const FlightDetailsCheckout = () => {
                             </label>
                             <select
                                 id="hotelDetails"
-                                name="busType" // Updated name attribute
+                                name="flightType" // Updated name attribute
                                 onChange={handleFlight} // Added onChange event
                                 defaultValue="CR"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

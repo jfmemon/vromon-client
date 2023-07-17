@@ -33,11 +33,11 @@ const BusDetailsCheckout = () => {
             phone: phone,
             from: from,
             to: to,
-            checkIn: departure,
-            checkOut: arrival,
+            departure: departure,
+            arrival: arrival,
             person: person,
             busName: busName,
-            roomType: busType,
+            busType: busType,
             price: busPrice,
         };
 
