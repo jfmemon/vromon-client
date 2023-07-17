@@ -42,7 +42,7 @@ const BusDetailsCheckout = () => {
         };
 
 
-        fetch('http://localhost:5000/busTicketBookings', {
+        fetch('https://vromon-server-roan.vercel.app/busTicketBookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
