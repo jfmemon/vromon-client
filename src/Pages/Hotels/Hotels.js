@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import HotelLists from './HotelLists';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Hotels = () => {
-    const hotelLists = useLoaderData();
-    const { hotels } = hotelLists;
-    // console.log(hotelLists);
+    const { hotels } = useLoaderData();
+    const { setHotelDetails } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleBookNowClick = (hotel) => {
+        setHotelDetails(hotel);
+        navigate(`/checkout/${hotel.id}`);
+    };
+
     return (
         <div>
             {
                 hotels.map(hotel => <HotelLists
                     key={hotel.id}
                     hotel={hotel}
+                    onBookNowClick={() => handleBookNowClick(hotel)}
                 ></HotelLists>)
             }
         </div>

@@ -1,14 +1,18 @@
 import React, { useContext, useState } from 'react';
-import { useLocation, Navigate, useNavigate } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Checkout = () => {
-    const { user } = useContext(AuthContext);
-    const location = useLocation();
-    const hotelDetails = location.state?.hotelDetails;
-    const { id, img, title, price } = hotelDetails;
+    const { user, hotelDetails } = useContext(AuthContext);
+    const { id } = useParams();
     const [hotelBookings, setHotelBookings] = useState([]);
     const [hotelPrice, setHotelPrice] = useState(0);
+
+    if (!hotelDetails) {
+        return <div>Error: Hotel details not found.</div>;
+    }
+
+    const { img, title, price } = hotelDetails;
 
     const handleHotelBookings = event => {
         event.preventDefault();
@@ -62,6 +66,7 @@ const Checkout = () => {
         newHotelBookings[fieldName] = value;
         setHotelBookings(newHotelBookings);
     };
+
 
     const handleRoom = event => {
         event.preventDefault();

@@ -14,6 +14,7 @@ import Checkout from "../../Pages/Checkout/Checkout";
 import BusDetailsCheckout from "../../Pages/ServiceList/BusDetailsCheckout";
 import HotelDetailsCheckout from "../../Pages/ServiceList/HotelDetailsCheckout";
 import FlightDetailsCheckout from "../../Pages/ServiceList/FlightDetailsCheckout";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -24,26 +25,32 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home></Home>
             },
+
             {
                 path: "/takeATour",
-                element: <TakeATour></TakeATour>
+                element: <PrivateRoutes><TakeATour></TakeATour></PrivateRoutes>
             },
+
             {
                 path: "/contactUs",
                 element: <ContactUs></ContactUs>
             },
+
             {
                 path: "/aboutUs",
                 element: <AboutUs></AboutUs>
             },
+
             {
                 path: "/login",
                 element: <Login></Login>
             },
+
             {
                 path: "/signup",
                 element: <SignUp></SignUp>
             },
+
             {
                 path: "/hotels/:id",
                 element: <Hotels></Hotels>,
@@ -51,24 +58,25 @@ const router = createBrowserRouter([
                     return fetch(`https://vromon-server-roan.vercel.app/destinations/${params.id}`)
                 }
             },
+
             {
-                path: "/checkout/:checkoutId",
-                element: <Checkout></Checkout>,
+                path: "/checkout/:id",
+                element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>,
             },
 
             {
-                path: "/busDetailsCheckout/:checkoutId",
-                element: <BusDetailsCheckout></BusDetailsCheckout>
+                path: "/busDetailsCheckout/:id",
+                element: <PrivateRoutes><BusDetailsCheckout></BusDetailsCheckout></PrivateRoutes>
             },
 
             {
-                path:"/hotelDetailsCheckout/:checkoutId",
-                element: <HotelDetailsCheckout></HotelDetailsCheckout>
+                path: "/hotelDetailsCheckout/:id",
+                element: <PrivateRoutes><HotelDetailsCheckout></HotelDetailsCheckout></PrivateRoutes>
             },
 
             {
-                path: "/flightDetailsCheckout/:checkoutId",
-                element: <FlightDetailsCheckout></FlightDetailsCheckout>
+                path: "/flightDetailsCheckout/:id",
+                element: <PrivateRoutes><FlightDetailsCheckout></FlightDetailsCheckout></PrivateRoutes>
             },
 
             {

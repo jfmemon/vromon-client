@@ -8,6 +8,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [hotelDetails, setHotelDetails] = useState(null);
 
     const login = (email, password) => {
         setLoading(true);
@@ -49,7 +50,9 @@ const AuthProvider = ({ children }) => {
         signup,
         updateUserProfile,
         emailVerify,
-        logout
+        logout,
+        hotelDetails,
+        setHotelDetails
     }
 
     return (

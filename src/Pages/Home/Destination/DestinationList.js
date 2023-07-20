@@ -12,7 +12,7 @@ const DestinationList = ({ destination }) => {
                 <p>{details}</p>
                 <div className="card-actions justify-end">
                     <Link to={`/hotels/${_id}`}>
-                        <button className="btn btn-outline btn-warning">Book Now</button>
+                        <button className="btn btn-outline btn-warning">Explore Now</button>
                     </Link>
                 </div>
             </div>
