@@ -26,7 +26,7 @@ const FlightDetailsCheckout = () => {
 
 
         const order = {
-            busId: id,
+            flightId: id,
             customerName: name,
             email: email,
             phone: phone,

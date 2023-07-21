@@ -1,12 +1,9 @@
 import React from 'react';
-import Header from '../Shared/Header/Header';
-import { Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
         <div>
-            <Header></Header>
-            <Outlet></Outlet>
+            <h3 className='text-2xl font-semibold text-center'>--Welcome to dashboard--</h3>
         </div>
     );
 };

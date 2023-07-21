@@ -15,6 +15,11 @@ import BusDetailsCheckout from "../../Pages/ServiceList/BusDetailsCheckout";
 import HotelDetailsCheckout from "../../Pages/ServiceList/HotelDetailsCheckout";
 import FlightDetailsCheckout from "../../Pages/ServiceList/FlightDetailsCheckout";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import HotelBookings from "../../Pages/Dashboard/HotelBookings/HotelBookings";
+import Users from "../../Pages/Dashboard/Users/Users";
+import ContactsInfo from "../../Pages/Dashboard/ContactsInfo/ContactsInfo";
+import BusTicketBookings from "../../Pages/Dashboard/BusTicketBookings/BusTicketBookings";
+import FlightBookings from "../../Pages/Dashboard/FlightBookings/FlightBookings";
 
 const router = createBrowserRouter([
     {
@@ -91,12 +96,32 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
         children: [
             {
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>
-            }
+            },
+            {
+                path: '/dashboard/hotelBookings',
+                element: <HotelBookings></HotelBookings>
+            },
+            {
+                path: '/dashboard/users',
+                element: <Users></Users>
+            },
+            {
+                path: '/dashboard/queries',
+                element: <ContactsInfo></ContactsInfo>
+            },
+            {
+                path: '/dashboard/busTicketBookings',
+                element: <BusTicketBookings></BusTicketBookings>
+            },
+            {
+                path: '/dashboard/flightBookings',
+                element: <FlightBookings></FlightBookings>
+            },
         ]
     }
 ])
