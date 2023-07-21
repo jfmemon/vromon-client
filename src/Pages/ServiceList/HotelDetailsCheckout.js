@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const HotelDetailsCheckout = () => {
-    const { user } = useContext(AuthContext);
-    const location = useLocation();
-    const hotelDetails = location.state?.hotelDetails;
-    const { id, img, title, price } = hotelDetails;
+    const { user, hotelServiceDetails } = useContext(AuthContext);
+    const { id } = useParams();
+    const { img, title, price } = hotelServiceDetails;
     const [hotelBookings, setHotelBookings] = useState([]);
     const [hotelPrice, setHotelPrice] = useState(0);
 
@@ -52,6 +51,7 @@ const HotelDetailsCheckout = () => {
             })
             .catch(err => console.error(err))
     }
+
 
     const handleInput = event => {
         event.preventDefault();

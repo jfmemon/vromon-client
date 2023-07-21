@@ -3,10 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const FlightDetailsCheckout = () => {
-    const { user } = useContext(AuthContext);
-    const location = useLocation();
-    const flightDetails = location.state?.flightDetails;
-    const { id, name, img, from, to, depurtureTime, arrivalTime, price } = flightDetails;
+    const { user, flightServiceDetails } = useContext(AuthContext);
+    const { id, name, img, from, to, depurtureTime, arrivalTime, price } = flightServiceDetails;
     const [flightPrice, setFlightPrice] = useState(0);
     const [flightTicketBookings, setFlightTicketBookings] = useState([]);
 

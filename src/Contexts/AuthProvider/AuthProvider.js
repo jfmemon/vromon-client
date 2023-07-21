@@ -9,6 +9,9 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [hotelDetails, setHotelDetails] = useState(null);
+    const [hotelServiceDetails, setHotelServiceDetails] = useState(null);
+    const [busServiceDetails, setBusServiceDetails] = useState(null);
+    const [flightServiceDetails, setFlightServiceDetails] = useState(null);
 
     const login = (email, password) => {
         setLoading(true);
@@ -52,7 +55,13 @@ const AuthProvider = ({ children }) => {
         emailVerify,
         logout,
         hotelDetails,
-        setHotelDetails
+        setHotelDetails,
+        hotelServiceDetails,
+        setHotelServiceDetails,
+        busServiceDetails,
+        setBusServiceDetails,
+        flightServiceDetails,
+        setFlightServiceDetails
     }
 
     return (
