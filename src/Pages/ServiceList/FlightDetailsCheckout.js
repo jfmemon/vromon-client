@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const FlightDetailsCheckout = () => {
     const { user, flightServiceDetails } = useContext(AuthContext);
-    const { id, name, img, from, to, depurtureTime, arrivalTime, price } = flightServiceDetails;
+    const { id } = useParams();
+    const { name, img, from, to, depurtureTime, arrivalTime, price } = flightServiceDetails;
     const [flightPrice, setFlightPrice] = useState(0);
     const [flightTicketBookings, setFlightTicketBookings] = useState([]);
 

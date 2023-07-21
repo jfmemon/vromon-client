@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import { useParams } from 'react-router-dom';
 
 const BusDetailsCheckout = () => {
     const { user, busServiceDetails } = useContext(AuthContext);
-    const { id, name, img, from, to, depurtureTime, arrivalTime, price } = busServiceDetails;
+    const {id} = useParams();
+    const { name, img, from, to, depurtureTime, arrivalTime, price } = busServiceDetails;
     const [busPrice, setBusPrice] = useState(0);
     const [busTicketBookings, setBusTicketBookings] = useState([]);
 
