@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 const HotelBookings = () => {
     const { user } = useContext(AuthContext);
-    const url = `http://localhost:5000/hotelBookings?email=${user?.email}`;
+    const url = `https://vromon-server-roan.vercel.app/hotelBookings?email=${user?.email}`;
 
     const { data: hotelBookings = [] } = useQuery({
         queryKey: ['hotelBookings', user.email],

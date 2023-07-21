@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FlightBookings = () => {
-    const url = `http://localhost:5000/flightTicketBookings`;
+    const url = `https://vromon-server-roan.vercel.app/flightTicketBookings`;
 
     const { data: bookedFlightTickets = [] } = async () => {
         const res = await fetch(url);

@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const BusTicketBookings = () => {
-    const url = `http://localhost:5000/busTicketBookings`;
+    const url = `https://vromon-server-roan.vercel.app/busTicketBookings`;
     const { data: bookedBusTickets = [] } = useQuery({
         queryKey: ['busTicketBookings'],
         queryFn: async () => {

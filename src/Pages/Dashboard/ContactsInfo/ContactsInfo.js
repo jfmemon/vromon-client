@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const ContactsInfo = () => {
-    const url = `http://localhost:5000/contacts`;
+    const url = `https://vromon-server-roan.vercel.app/contacts`;
     const {data: contactsInfo = []} = useQuery({
         queryKey: ['contacts'],
         queryFn: async () => {
