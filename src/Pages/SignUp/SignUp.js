@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+import { sendEmailVerification } from 'firebase/auth';
 
 const SignUp = () => {
     const { signup, emailVerify } = useContext(AuthContext);
     const [user, setUser] = useState([]);
+
+    const verification = () => toast('Please check your email and verify your email.');
+
     const handleSignUp = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -13,13 +17,11 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        signup(name, email, password)
+        signup(email, password)
             .then(result => {
                 const user = result.user;
-                // console.log(user);
-                // alert('Signup successful.');
-                // alert('Registration completed.');
                 form.reset();
+                emailVerification();
             })
             .catch(err => console.error(err))
 
@@ -34,9 +36,16 @@ const SignUp = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert("Registration successful.")
+                    // alert("Registration successful.")
                     event.target.reset();
                 }
+            })
+    }
+
+    const emailVerification = () => {
+        emailVerify()
+            .then(() => {
+                verification();
             })
     }
 
@@ -53,27 +62,31 @@ const SignUp = () => {
         <div className="hero bg-base-200 w-full">
             <div className="hero-content">
                 <div className="card shadow-2xl bg-base-100 my-5">
-                    <form onSubmit={handleSignUp} className="card-body w-96">
+                    <form onSubmit={handleSignUp} className="card-body lg:w-96">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input onBlur={handleInput} name='name' type="text" className="input input-bordered" required/>
+                            <input onBlur={handleInput} name='name' type="text" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input onBlur={handleInput} name='email' type="email" className="input input-bordered" required/>
+                            <input onBlur={handleInput} name='email' type="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input onBlur={handleInput} name='password' type="password" className="input input-bordered" required/>
+                            <input onBlur={handleInput} name='password' type="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-warning" type="submit" value="Sign Up" />
+                            <input onClick={verification} className="btn btn-warning" type="submit" value="Sign Up" />
+                            <Toaster />
+                        </div>
+                        <div>
+                            <p><small>Already have an account? <Link to="/login" className='text-warning'>Login</Link></small></p>
                         </div>
                     </form>
                 </div>

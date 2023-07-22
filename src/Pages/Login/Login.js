@@ -32,9 +32,10 @@ const Login = () => {
 
     return (
         <div className="hero bg-base-200">
+            <h3 className='text-3xl text-center'>Login</h3>
             <div className="hero-content">
                 <div className="card shadow-2xl bg-base-100 my-10">
-                    <form onSubmit={handleLogin} className="card-body w-96">
+                    <form onSubmit={handleLogin} className="card-body lg:w-96">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -52,6 +53,9 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-warning">Login</button>
+                        </div>
+                        <div>
+                            <p><small>New to vromon? <Link to="/signup" className='text-warning'>Sign Up</Link></small></p>
                         </div>
                     </form>
                 </div>

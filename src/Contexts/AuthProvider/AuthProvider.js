@@ -35,6 +35,7 @@ const AuthProvider = ({ children }) => {
     const emailVerify = () => {
         return sendEmailVerification(auth.currentUser);
     }
+    
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
@@ -47,6 +48,7 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     const authInfo = {
+        auth,
         user,
         loading,
         login,

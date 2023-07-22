@@ -5,7 +5,9 @@ import { useParams } from 'react-router-dom';
 const HotelDetailsCheckout = () => {
     const { user, hotelServiceDetails } = useContext(AuthContext);
     const { id } = useParams();
-    const { img, title, price } = hotelServiceDetails;
+    const img = hotelServiceDetails?.img;
+    const title = hotelServiceDetails?.title;
+    const price = hotelServiceDetails?.price;
     const [hotelBookings, setHotelBookings] = useState([]);
     const [hotelPrice, setHotelPrice] = useState(0);
 
@@ -86,20 +88,20 @@ const HotelDetailsCheckout = () => {
             </div>
             <form onSubmit={handleHotelBookings} className="card-body">
                 <div className='grid lg:grid-cols-2 sm:grid-cols-1'>
-                    <div className='flex flex-col justify-center items-center'>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                    <div className='flex flex-col'>
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
                             <input onBlur={handleInput} name='name' type="text" className="input input-bordered w-3/4" />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input onBlur={handleInput} defaultValue={user?.email} readOnly name='email' type="email" className="input input-bordered w-3/4" />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Phone Number</span>
                             </label>
@@ -107,32 +109,32 @@ const HotelDetailsCheckout = () => {
                         </div>
                     </div>
 
-                    <div className='flex flex-col justify-center items-center'>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                    <div className='flex flex-col'>
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Check In</span>
                             </label>
                             <input onBlur={handleInput} name='checkIn' type="date" className="input input-bordered w-3/4" required />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Check Out</span>
                             </label>
                             <input onBlur={handleInput} name='checkOut' type="date" className="input input-bordered w-3/4" required />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Person</span>
                             </label>
                             <input onBlur={handleInput} name='person' type="number" className="input input-bordered w-3/4" required />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Hotel name</span>
                             </label>
                             <input onBlur={handleInput} name='hotel' defaultValue={title} readOnly type="option" className="input input-bordered w-3/4" />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label htmlFor="hotelDetails" className="label">
                                 <span className="label-text">Room type</span>
                             </label>

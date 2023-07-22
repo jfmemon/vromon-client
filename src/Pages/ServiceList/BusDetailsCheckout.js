@@ -5,7 +5,13 @@ import { useParams } from 'react-router-dom';
 const BusDetailsCheckout = () => {
     const { user, busServiceDetails } = useContext(AuthContext);
     const {id} = useParams();
-    const { name, img, from, to, depurtureTime, arrivalTime, price } = busServiceDetails;
+    const name = busServiceDetails?.name;
+    const img = busServiceDetails?.img;
+    const from = busServiceDetails?.from;
+    const to = busServiceDetails?.to;
+    const depurtureTime = busServiceDetails?.depurtureTime;
+    const arrivalTime = busServiceDetails?.arrivalTime;
+    const price = busServiceDetails?.price;
     const [busPrice, setBusPrice] = useState(0);
     const [busTicketBookings, setBusTicketBookings] = useState([]);
 
@@ -99,32 +105,32 @@ const BusDetailsCheckout = () => {
             </div>
             <form onSubmit={handleBusTicketBookings} className="card-body">
                 <div className='grid lg:grid-cols-2 sm:grid-cols-1'>
-                    <div className='flex flex-col justify-center items-center'>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                    <div className='flex flex-col'>
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
                             <input onBlur={handleInput} name='name' type="text" className="input input-bordered w-3/4" />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input onBlur={handleInput} defaultValue={user?.email} readOnly name='email' type="email" className="input input-bordered w-3/4" />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Phone Number</span>
                             </label>
                             <input onBlur={handleInput} name='phone' type="number" className="input input-bordered w-3/4" required />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">From</span>
                             </label>
                             <input onBlur={handleInput} name='from' type="text" defaultValue={from} readOnly className="input input-bordered w-3/4" required />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">To</span>
                             </label>
@@ -132,32 +138,32 @@ const BusDetailsCheckout = () => {
                         </div>
                     </div>
 
-                    <div className='flex flex-col justify-center items-center'>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                    <div className='flex flex-col'>
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Departure time</span>
                             </label>
                             <input onBlur={handleInput} name='departure' type="time" defaultValue={depurtureTime} readOnly className="input input-bordered w-3/4" required />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Arrival time</span>
                             </label>
                             <input onBlur={handleInput} name='arrival' type="time" defaultValue={arrivalTime} readOnly className="input input-bordered w-3/4" required />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Person</span>
                             </label>
                             <input id='personQuantity' onBlur={handleInput} name='person' type="number" defaultValue={0} className="input input-bordered w-3/4" required />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Bus name</span>
                             </label>
                             <input onBlur={handleInput} name='busName' defaultValue={name} readOnly type="option" className="input input-bordered w-3/4" />
                         </div>
-                        <div className="form-control lg:w-2/3 sm:w-full">
+                        <div className="form-control">
                             <label htmlFor="hotelDetails" className="label">
                                 <span className="label-text">Bus type</span>
                             </label>

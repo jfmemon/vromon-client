@@ -17,6 +17,7 @@ const Header = () => {
         <li className='font-semibold'><Link to='/takeATour'>Take a tour</Link></li>
         <li className='font-semibold'><Link to='/aboutUs'>About Us</Link></li>
         <li className='font-semibold'><Link to='/contactUs'>Contact Us</Link></li>
+        <li className='font-semibold'><Link to='/dashboard'>Dashboard</Link></li>
     </>
 
     return (
@@ -44,18 +45,12 @@ const Header = () => {
                 {
                     user?.email ?
                         <>
-                            <button className="btn btn-outline btn-warning mr-2" >
-                                <Link to="/dashboard">Dashboard</Link>
-                            </button>
                             <button onClick={handleLogout} className="btn btn-warning">Log Out</button>
                         </>
                         :
                         <>
                             <Link to="/login">
                                 <button className="btn btn-outline btn-warning mr-2">Log In</button>
-                            </Link>
-                            <Link to="/signup">
-                                <button className="btn btn-warning">Sign Up</button>
                             </Link>
                         </>
 
