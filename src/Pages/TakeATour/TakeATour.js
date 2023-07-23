@@ -6,7 +6,7 @@ const TakeATour = () => {
     const { user } = useContext(AuthContext);
     const [tours, setTours] = useState([]);
     const [hotels, setHotels] = useState([]);
-    const destinationsHotel = hotels[0]?.hotels;
+    const destinationsHotel = hotels.length > 0 ? hotels[0].hotels : [];
     const [selectedDestinationId, setSelectedDestinationId] = useState("");
 
     // console.log(destinationsHotel);
@@ -149,28 +149,22 @@ const TakeATour = () => {
                                 <option value="CH">Choose a hotel</option>
                                 {
                                     destinationsHotel.map(hotel =>
-                                        <option value={hotel._id} key={hotel._id}>
+                                        <option value={hotel.id} key={hotel.id}>
                                             {hotel.title}
                                         </option>
                                     )
                                 }
                             </select>
-                            {/* <option value="HSC">Hotel Sea Crown</option>
-                                <option value="LBH">Long Beach Hotel</option>
-                                <option value="BWH">Best Western Heritage</option>
-                                <option value="DSVHR">D' more Sajek Valley Hotel & Resort</option>
-                                <option value="HP">Hotel Prince</option>
-                                <option value="HHA">Hotel Hill Ambassador</option>
-                                <option value="HGC">Hotel Green Castle</option>
-                                <option value="HHV">Hotel Hill View</option>
-                                <option value="BNHR">Bono Nibash Hill Resort</option>
-                                <option value="FR">Fanush Resort</option> */}
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Room type</span>
                             </label>
-                            <input onBlur={handleInput} name='room' type='option' className="input input-bordered w-3/4" />
+                            <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="CR">Choose a room</option>
+                                <option value="SL">Single</option>
+                                <option value="DL">Double</option>
+                            </select>
                         </div>
                         <div className='mt-4'>
                             <h3 className='font-semibold'>Total price: <span className='text-warning' defaultValue="0"></span> </h3>
