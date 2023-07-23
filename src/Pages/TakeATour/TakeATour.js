@@ -1,9 +1,49 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import { useQuery } from '@tanstack/react-query';
 
 const TakeATour = () => {
     const { user } = useContext(AuthContext);
-    const [tours, setTours] = useState([])
+    const [tours, setTours] = useState([]);
+    const [hotels, setHotels] = useState([]);
+    const destinationsHotel = hotels[0]?.hotels;
+    const [selectedDestinationId, setSelectedDestinationId] = useState("");
+
+    // console.log(destinationsHotel);
+
+    // destinationsHotel.map(hotel => {
+    //     return console.log(hotel.price)
+    // })
+
+    const url = `http://localhost:5000/destinations`;
+
+    const { data: destinations = [] } = useQuery({
+        queryKey: ["destinations"],
+        queryFn: async () => {
+            const res = await fetch(url);
+            const data = await res.json();
+            return data;
+        }
+    })
+
+    useEffect(() => {
+        const obtainHotels = async (id) => {
+            const url = `http://localhost:5000/destinations/${id}`;
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                console.log('Obtained hotels:', data);
+                setHotels(Array.isArray(data) ? data : [data]);
+            } catch (error) {
+                console.error('Error fetching hotels:', error);
+            }
+        };
+
+        if (selectedDestinationId) {
+            console.log('Selected Destination ID:', selectedDestinationId);
+            obtainHotels(selectedDestinationId);
+        }
+    }, [selectedDestinationId]);
 
     const handleTourPackage = event => {
         event.preventDefault();
@@ -42,47 +82,89 @@ const TakeATour = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input onBlur={handleInput} name='name' type="text" className="input input-bordered w-3/4" />
+                            <input onBlur={handleInput} name='name' type="text" className="input input-bordered w-3/4" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input onBlur={handleInput} name='email' type="email" className="input input-bordered w-3/4" />
+                            <input onBlur={handleInput} name='email' type="email" className="input input-bordered w-3/4" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Phone Number</span>
                             </label>
-                            <input onBlur={handleInput} name='phone' type="number" className="input input-bordered w-3/4" />
+                            <input onBlur={handleInput} name='phone' type="number" className="input input-bordered w-3/4" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Destination</span>
                             </label>
-                            <input onBlur={handleInput} name='from' type="text" className="input input-bordered w-3/4" placeholder='From' /><br />
-                            <input onBlur={handleInput} name='to' type="text" className="input input-bordered w-3/4" placeholder='To' />
+                            <select
+                                id=""
+                                name=""
+                                defaultValue="CD"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required
+                                onChange={(e) => setSelectedDestinationId(e.target.value)} // Update selectedDestinationId when a destination is selected
+                            >
+                                <option value="CD">Choose a destination</option>
+                                {destinations.map(destination =>
+                                    <option value={destination._id} key={destination._id}>
+                                        {destination.title}
+                                    </option>
+                                )}
+                            </select>
                         </div>
                     </div>
                     <div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Date</span>
+                                <span className="label-text">Check In</span>
                             </label>
-                            <input onBlur={handleInput} name='date' type="date" className="input input-bordered w-3/4" />
+                            <input onBlur={handleInput} name='date' type="date" className="input input-bordered w-3/4" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Check Out</span>
+                            </label>
+                            <input onBlur={handleInput} name='date' type="date" className="input input-bordered w-3/4" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Person</span>
                             </label>
-                            <input onBlur={handleInput} name='person' type="number" className="input input-bordered w-3/4" />
+                            <input onBlur={handleInput} name='person' type="number" className="input input-bordered w-3/4" defaultValue={0} required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Hotel name</span>
                             </label>
-                            <input onBlur={handleInput} name='hotel' type="option" className="input input-bordered w-3/4" />
+                            <select
+                                name="hotel"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required
+                            >
+                                <option value="CH">Choose a hotel</option>
+                                {
+                                    destinationsHotel.map(hotel =>
+                                        <option value={hotel._id} key={hotel._id}>
+                                            {hotel.title}
+                                        </option>
+                                    )
+                                }
+                            </select>
+                            {/* <option value="HSC">Hotel Sea Crown</option>
+                                <option value="LBH">Long Beach Hotel</option>
+                                <option value="BWH">Best Western Heritage</option>
+                                <option value="DSVHR">D' more Sajek Valley Hotel & Resort</option>
+                                <option value="HP">Hotel Prince</option>
+                                <option value="HHA">Hotel Hill Ambassador</option>
+                                <option value="HGC">Hotel Green Castle</option>
+                                <option value="HHV">Hotel Hill View</option>
+                                <option value="BNHR">Bono Nibash Hill Resort</option>
+                                <option value="FR">Fanush Resort</option> */}
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -90,13 +172,13 @@ const TakeATour = () => {
                             </label>
                             <input onBlur={handleInput} name='room' type='option' className="input input-bordered w-3/4" />
                         </div>
-                        <div>
-                            <h3>Total price: </h3>
+                        <div className='mt-4'>
+                            <h3 className='font-semibold'>Total price: <span className='text-warning' defaultValue="0"></span> </h3>
                         </div>
                     </div>
                 </div>
                 <div className="form-control mt-6">
-                    <button className="btn btn-warning w-1/4 ml-auto mr-auto">Book Now</button>
+                    <button className="btn btn-warning w-1/4 ml-auto mr-auto">Send a request</button>
                 </div>
             </form>
         </div>
