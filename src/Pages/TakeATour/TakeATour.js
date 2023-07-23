@@ -15,7 +15,7 @@ const TakeATour = () => {
     //     return console.log(hotel.price)
     // })
 
-    const url = `http://localhost:5000/destinations`;
+    const url = `https://vromon-server-roan.vercel.app/destinations`;
 
     const { data: destinations = [] } = useQuery({
         queryKey: ["destinations"],
@@ -28,7 +28,7 @@ const TakeATour = () => {
 
     useEffect(() => {
         const obtainHotels = async (id) => {
-            const url = `http://localhost:5000/destinations/${id}`;
+            const url = `https://vromon-server-roan.vercel.app/destinations/${id}`;
             try {
                 const res = await fetch(url);
                 const data = await res.json();
