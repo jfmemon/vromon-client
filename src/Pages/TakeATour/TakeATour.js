@@ -8,12 +8,8 @@ const TakeATour = () => {
     const [hotels, setHotels] = useState([]);
     const destinationsHotel = hotels.length > 0 ? hotels[0].hotels : [];
     const [selectedDestinationId, setSelectedDestinationId] = useState("");
-
-    // console.log(destinationsHotel);
-
-    // destinationsHotel.map(hotel => {
-    //     return console.log(hotel.price)
-    // })
+    const [hotelPrice, setHotelPrice] = useState(0);
+    const [roomType, setRoomType] = useState("");
 
     const url = `https://vromon-server-roan.vercel.app/destinations`;
 
@@ -26,13 +22,13 @@ const TakeATour = () => {
         }
     })
 
+
     useEffect(() => {
         const obtainHotels = async (id) => {
             const url = `https://vromon-server-roan.vercel.app/destinations/${id}`;
             try {
                 const res = await fetch(url);
                 const data = await res.json();
-                console.log('Obtained hotels:', data);
                 setHotels(Array.isArray(data) ? data : [data]);
             } catch (error) {
                 console.error('Error fetching hotels:', error);
@@ -40,7 +36,6 @@ const TakeATour = () => {
         };
 
         if (selectedDestinationId) {
-            console.log('Selected Destination ID:', selectedDestinationId);
             obtainHotels(selectedDestinationId);
         }
     }, [selectedDestinationId]);
@@ -144,12 +139,16 @@ const TakeATour = () => {
                             <select
                                 name="hotel"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                onChange={(event) => {
+                                    const price = event.target.value;
+                                    setHotelPrice(price);
+                                }}
                                 required
                             >
                                 <option value="CH">Choose a hotel</option>
                                 {
                                     destinationsHotel.map(hotel =>
-                                        <option value={hotel.id} key={hotel.id}>
+                                        <option value={hotel.price} key={hotel.id}>
                                             {hotel.title}
                                         </option>
                                     )
@@ -160,14 +159,22 @@ const TakeATour = () => {
                             <label className="label">
                                 <span className="label-text">Room type</span>
                             </label>
-                            <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                onChange={(event) => {
+                                    const roomType = event.target.value;
+                                    setRoomType(roomType);
+                                }}
+                            >
                                 <option value="CR">Choose a room</option>
                                 <option value="SL">Single</option>
                                 <option value="DL">Double</option>
                             </select>
                         </div>
                         <div className='mt-4'>
-                            <h3 className='font-semibold'>Total price: <span className='text-warning' defaultValue="0"></span> </h3>
+                            <h3 className='font-semibold'>Total price: <span className='text-warning' defaultValue="0">{
+                                roomType === "DL" ? (parseInt(hotelPrice) + 1000) : hotelPrice
+                            }</span> TK</h3>
                         </div>
                     </div>
                 </div>
