@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import DestinationList from './DestinationList';
 
 const Destination = () => {
     const [destinations, setDestinations] = useState([]);
 
     fetch('https://vromon-server-roan.vercel.app/destinations')
-    .then(res => res.json())
-    .then(data => {
-        setDestinations(data);
-    })
+        .then(res => res.json())
+        .then(data => {
+            setDestinations(data);
+        })
 
     return (
         <div className='mt-24'>
@@ -16,8 +16,8 @@ const Destination = () => {
             <div className='grid lg:grid-cols-4 sm:grid-cols-1 gap-5 p-4'>
                 {
                     destinations.map(destination => <DestinationList
-                    key={destination._id}
-                    destination={destination}
+                        key={destination._id}
+                        destination={destination}
                     ></DestinationList>)
                 }
             </div>

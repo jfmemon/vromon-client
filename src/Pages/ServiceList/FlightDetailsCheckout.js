@@ -80,6 +80,7 @@ const FlightDetailsCheckout = () => {
         const personQuantityInt = parseInt(personQuantityString);
         let flightTicketPrice = price;
         const value = event.target.value;
+
         if (value === "CC") {
             setFlightPrice(0);
         }

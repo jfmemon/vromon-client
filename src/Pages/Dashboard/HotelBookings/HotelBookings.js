@@ -31,7 +31,7 @@ const HotelBookings = () => {
                             <th>Check Out</th>
                             <th>Person</th>
                             <th>Room Type</th>
-                            <th>Price</th>
+                            <th>Price(TK)</th>
                         </tr>
                     </thead>
                     <tbody>

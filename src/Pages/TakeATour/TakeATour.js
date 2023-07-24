@@ -53,7 +53,7 @@ const TakeATour = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert("Information added successfully.")
+                    alert("Your request has been sent.")
                     event.target.reset();
                 }
             })
@@ -165,6 +165,7 @@ const TakeATour = () => {
                                     const roomType = event.target.value;
                                     setRoomType(roomType);
                                 }}
+
                             >
                                 <option value="CR">Choose a room</option>
                                 <option value="SL">Single</option>

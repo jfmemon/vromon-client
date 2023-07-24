@@ -5,10 +5,10 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     fetch('https://vromon-server-roan.vercel.app/services')
-    .then(res => res.json())
-    .then(data => {
-        setServices(data);
-    })
+        .then(res => res.json())
+        .then(data => {
+            setServices(data);
+        })
 
     return (
         <div className='my-20'>
@@ -16,8 +16,8 @@ const Services = () => {
             <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-5 p-5'>
                 {
                     services.map(service => <ServiceList
-                    key={service._id}
-                    service={service}
+                        key={service._id}
+                        service={service}
                     ></ServiceList>)
                 }
             </div>

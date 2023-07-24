@@ -1,17 +1,21 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const FlightBookings = () => {
     const url = `https://vromon-server-roan.vercel.app/flightTicketBookings`;
 
-    const { data: bookedFlightTickets = [] } = async () => {
-        const res = await fetch(url);
-        const data = await res.json();
-        return data;
-    }
+    const { data: bookedFlightTickets = [] } = useQuery ({
+        queryKey: ['flightTicketBookings'],
+        queryFn: async () => {
+            const res = await fetch(url);
+            const data = await res.json();
+            return data;
+        }
+    })
 
     return (
         <div>
-            <h3 className='text-2xl text-warning font-semibold p-5'>Bus Ticket Booking Information</h3>
+            <h3 className='text-2xl text-warning font-semibold p-5'>Flight Booking Information</h3>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>

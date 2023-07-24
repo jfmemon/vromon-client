@@ -22,7 +22,7 @@ const Header = () => {
     return (
         <div className="navbar bg-base-100 h-12 mb-8 mt-2 ">
             <div className="navbar-start">
-                <div className="dropdown">
+                <div className="dropdown z-10">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
@@ -52,7 +52,6 @@ const Header = () => {
                                 <button className="btn btn-outline btn-warning mr-2">Log In</button>
                             </Link>
                         </>
-
                 }
             </div>
 
