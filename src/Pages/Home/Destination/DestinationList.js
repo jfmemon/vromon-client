@@ -6,7 +6,7 @@ const DestinationList = ({ destination }) => {
 
     return (
         <div className="card w-50 bg-base-100 shadow-xl">
-            <figure><img src={img} alt="Shoes" /></figure>
+            <figure><img src={img} className="lg:h-64 hover:scale-125 transition duration-500 cursor-pointer" alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
                 <p>{details}</p>

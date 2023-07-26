@@ -12,7 +12,7 @@ const Destination = () => {
 
     return (
         <div className='mt-24'>
-            <h3 className='text-5xl font-bold pb-5 text-center'>Popular Destinations</h3>
+            <h3 className='text-5xl font-bold pb-5 text-center font-mono'>Popular Destinations</h3>
             <div className='grid lg:grid-cols-4 sm:grid-cols-1 gap-5 p-4'>
                 {
                     destinations.map(destination => <DestinationList

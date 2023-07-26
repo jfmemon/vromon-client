@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import './BusTicketBookings.css';
 
 const BusTicketBookings = () => {
     const url = `https://vromon-server-roan.vercel.app/busTicketBookings`;
@@ -11,14 +12,15 @@ const BusTicketBookings = () => {
             return data;
         }
     })
+
     return (
         <div>
-            <h3 className='text-2xl text-warning font-semibold p-5'>Bus Ticket Booking Information</h3>
-            <div className="overflow-x-auto">
+            <h3 className='text-2xl text-warning font-semibold p-5 font-mono'>Bus Ticket Booking Information</h3>
+            <div className="table-container">
                 <table className="table">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>No.</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
@@ -35,7 +37,7 @@ const BusTicketBookings = () => {
                     <tbody>
                         {
                             bookedBusTickets.map((bBusTickets, i) =>
-                                <tr className="hover">
+                                <tr className="hover" key={bBusTickets._id}>
                                     <th>{i + 1}</th>
                                     <td>{bBusTickets.customerName}</td>
                                     <td>{bBusTickets.email}</td>

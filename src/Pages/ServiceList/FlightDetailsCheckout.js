@@ -102,7 +102,7 @@ const FlightDetailsCheckout = () => {
         <div>
             <h3 className='text-3xl font-semibold text-center my-5'>-Confirmation Page-</h3>
             <div className='lg:w-1/3 ms-auto me-auto'>
-                <img src={img} alt="" />
+                <img className='rounded' src={img} alt="" />
             </div>
             <form onSubmit={handleFlightTicketBookings} className="card-body">
                 <div className='grid lg:grid-cols-2 sm:grid-cols-1'>

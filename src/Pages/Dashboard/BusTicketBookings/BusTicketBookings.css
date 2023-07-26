@@ -1,0 +1,11 @@
+/* CSS file */
+.table-container {
+    max-width: 100%;
+}
+
+/* Apply overflow scroll for small devices */
+@media (max-width: 640px) {
+    .table-container {
+        overflow-x: scroll;
+    }
+}
