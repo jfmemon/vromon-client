@@ -1,11 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Users = () => {
-    const url = `https://vromon-server-roan.vercel.app/users`;
+    const { user } = useContext(AuthContext);
+    const url = `https://vromon-server-roan.vercel.app/users?email=${user.email}`;
 
     const { data: users = [] } = useQuery({
-        queryKey: ['users'],
+        queryKey: ['users', user.email],
         queryFn: async () => {
             const res = await fetch(url);
             const data = await res.json();
@@ -15,8 +17,8 @@ const Users = () => {
 
     return (
         <div>
-            <h3 className='text-2xl text-warning font-semibold p-5'>Registered Users Information</h3>
-            <div className="overflow-x-auto">
+            <h3 className='text-2xl text-warning font-semibold p-5'>Your Information</h3>
+            <div>
                 <table className="table">
                     <thead>
                         <tr>

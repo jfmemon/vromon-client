@@ -1,11 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import './BusTicketBookings.css';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const BusTicketBookings = () => {
-    const url = `https://vromon-server-roan.vercel.app/busTicketBookings`;
+    const {user} = useContext(AuthContext);
+    const url = `https://vromon-server-roan.vercel.app/busTicketBookings?email=${user?.email}`;
     const { data: bookedBusTickets = [] } = useQuery({
-        queryKey: ['busTicketBookings'],
+        queryKey: ['busTicketBookings', user.email],
         queryFn: async () => {
             const res = await fetch(url);
             const data = await res.json();

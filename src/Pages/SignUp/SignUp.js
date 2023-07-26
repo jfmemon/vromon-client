@@ -3,12 +3,13 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { sendEmailVerification } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const { signup, emailVerify } = useContext(AuthContext);
     const [user, setUser] = useState([]);
 
-    const verification = () => toast('Please check your email and verify your email.');
+    // const verification = () => toast('Please check your email and verify your email.');
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -21,7 +22,6 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 form.reset();
-                emailVerification();
             })
             .catch(err => console.error(err))
 
@@ -36,18 +36,20 @@ const SignUp = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    // alert("Registration successful.")
+                    Swal.fire(
+                        'Registration successful..!'
+                      )
                     event.target.reset();
                 }
             })
     }
 
-    const emailVerification = () => {
-        emailVerify()
-            .then(() => {
-                verification();
-            })
-    }
+    // const emailVerification = () => {
+    //     emailVerify()
+    //         .then(() => {
+    //             verification();
+    //         })
+    // }
 
     const handleInput = event => {
         event.preventDefault();
@@ -82,8 +84,8 @@ const SignUp = () => {
                             <input onBlur={handleInput} name='password' type="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <input onClick={verification} className="btn btn-warning" type="submit" value="Sign Up" />
-                            <Toaster />
+                            <input className="btn btn-warning" type="submit" value="Sign Up" />
+                            
                         </div>
                         <div>
                             <p><small>Already have an account? <Link to="/login" className='text-warning'>Login</Link></small></p>

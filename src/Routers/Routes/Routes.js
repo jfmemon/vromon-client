@@ -20,6 +20,7 @@ import Users from "../../Pages/Dashboard/Users/Users";
 import ContactsInfo from "../../Pages/Dashboard/ContactsInfo/ContactsInfo";
 import BusTicketBookings from "../../Pages/Dashboard/BusTicketBookings/BusTicketBookings";
 import FlightBookings from "../../Pages/Dashboard/FlightBookings/FlightBookings";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 
 const router = createBrowserRouter([
     {
@@ -122,6 +123,10 @@ const router = createBrowserRouter([
                 path: '/dashboard/flightBookings',
                 element: <FlightBookings></FlightBookings>
             },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers></AllUsers>
+            }
         ]
     }
 ])
