@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useAdmin from '../../../Hooks/useAdmin';
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
+    const { isAdmin } = useAdmin();
 
     const handleLogout = () => {
         logout()
@@ -16,7 +18,7 @@ const Header = () => {
         <li className='font-semibold'><Link to='/takeATour'>Take a tour</Link></li>
         <li className='font-semibold'><Link to='/aboutUs'>About Us</Link></li>
         <li className='font-semibold'><Link to='/contactUs'>Contact Us</Link></li>
-        <li className='font-semibold'><Link to='/dashboard'>Dashboard</Link></li>
+        <li className='font-semibold'><Link to={isAdmin ? '/dashboard/adminHome' : '/dashboard/userHome'}>Dashboard</Link></li>
     </>
 
     return (

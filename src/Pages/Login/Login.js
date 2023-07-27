@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
+import Swal from 'sweetalert2';
 const Login = () => {
     const { login, user } = useContext(AuthContext);
     const location = useLocation();
@@ -19,8 +19,14 @@ const Login = () => {
                 const userCheck = result.user;
                 console.log(userCheck);
                 form.reset();
-                alert("Login successful.");
-                navigate(from, {replace: true})
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: `Login Successful..`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navigate(from, { replace: true })
             })
 
             .catch(err => {

@@ -8,8 +8,6 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import TakeATour from "../../Pages/TakeATour/TakeATour";
 import Hotels from "../../Pages/Hotels/Hotels";
 import ServiceList from './../../Pages/ServiceList/ServiceList';
-import DashboardLayout from "../../Layouts/DashboardLayout";
-import Dashboard from "../../Pages/Dashboard/Dashboard";
 import Checkout from "../../Pages/Checkout/Checkout";
 import BusDetailsCheckout from "../../Pages/ServiceList/BusDetailsCheckout";
 import HotelDetailsCheckout from "../../Pages/ServiceList/HotelDetailsCheckout";
@@ -21,6 +19,14 @@ import ContactsInfo from "../../Pages/Dashboard/ContactsInfo/ContactsInfo";
 import BusTicketBookings from "../../Pages/Dashboard/BusTicketBookings/BusTicketBookings";
 import FlightBookings from "../../Pages/Dashboard/FlightBookings/FlightBookings";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "../PrivateRoutes/AdminRoute";
+import Dashboard from "../../Layouts/Dashboard";
+import UserHome from "../../Pages/Dashboard/UserHome/UserHome";
+import AdminHome from "../../Pages/Dashboard/AdminHome/AdminHome";
+import ManageHotels from './../../Pages/Dashboard/ManageHotels/ManageHotels';
+import ManageBuses from './../../Pages/Dashboard/ManageBuses/ManageBuses';
+import ManageFlights from './../../Pages/Dashboard/ManageFlights/ManageFlights';
+import ManageQueries from './../../Pages/Dashboard/ManageQueries/ManageQueries';
 
 const router = createBrowserRouter([
     {
@@ -97,35 +103,59 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
+        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
         children: [
+
+            //user dashboard
             {
-                path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                path: 'userHome',
+                element: <UserHome></UserHome>
             },
             {
-                path: '/dashboard/hotelBookings',
+                path: 'hotelBookings',
                 element: <HotelBookings></HotelBookings>
             },
             {
-                path: '/dashboard/users',
+                path: 'users',
                 element: <Users></Users>
             },
             {
-                path: '/dashboard/queries',
+                path: 'queries',
                 element: <ContactsInfo></ContactsInfo>
             },
             {
-                path: '/dashboard/busTicketBookings',
+                path: 'busTicketBookings',
                 element: <BusTicketBookings></BusTicketBookings>
             },
             {
-                path: '/dashboard/flightBookings',
+                path: 'flightBookings',
                 element: <FlightBookings></FlightBookings>
             },
+
+            //admin dashboard
             {
-                path: '/dashboard/allusers',
-                element: <AllUsers></AllUsers>
+                path: 'allUsers',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: 'adminHome',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+            },
+            {
+                path: 'manageHotelBookings',
+                element: <AdminRoute><ManageHotels></ManageHotels></AdminRoute>
+            },
+            {
+                path: 'manageBusTicketBookings',
+                element: <AdminRoute><ManageBuses></ManageBuses></AdminRoute>
+            },
+            {
+                path: 'manageFlightBookings',
+                element: <AdminRoute><ManageFlights></ManageFlights></AdminRoute>
+            },
+            {
+                path: 'manageQueries',
+                element: <AdminRoute><ManageQueries></ManageQueries></AdminRoute>
             }
         ]
     }
