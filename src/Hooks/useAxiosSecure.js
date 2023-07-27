@@ -3,12 +3,12 @@ import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const useAxiosSecure = () => {
+const useAxiosSecure = (user) => { // Accept the 'user' object as an argument
     const { logout } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const axiosSecure = axios.create({
-        baseURL: "http://localhost:5000",
+        baseURL: "https://vromon-server-roan.vercel.app",
     });
 
     useEffect(() => {
@@ -36,18 +36,9 @@ const useAxiosSecure = () => {
             axiosSecure.interceptors.request.eject(requestInterceptor);
             axiosSecure.interceptors.response.eject(responseInterceptor);
         };
-    }, [logout, navigate, axiosSecure]); // Pass the dependencies as an array to useEffect
-    // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    }, [logout, navigate, axiosSecure]);
 
-    return axiosSecure; // Return the axiosSecure instance
+    return axiosSecure;
 };
 
 export default useAxiosSecure;
-
-
-
-
-
-
-
-
