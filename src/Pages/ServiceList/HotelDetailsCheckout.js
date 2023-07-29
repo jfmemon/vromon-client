@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const HotelDetailsCheckout = () => {
     const { user, hotelServiceDetails } = useContext(AuthContext);
@@ -47,7 +48,13 @@ const HotelDetailsCheckout = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('Hotel booked successfully.');
+                    Swal.fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Hotel booked successfully.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                     form.reset();
                 }
             })

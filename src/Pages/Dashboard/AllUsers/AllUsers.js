@@ -52,7 +52,7 @@ const AllUsers = () => {
 
     return (
         <div className='text-center w-full'>
-            <h3 className='text-3xl font-semibold my-5 text-warning'>Total users: {users.length}</h3>
+            <h3 className='text-3xl font-semibold my-5 text-warning underline-offset-8'>Total users: {users.length}</h3>
             <div className='overflow-x-auto'>
                 <table className="table table-zebra w-full">
                     <thead>

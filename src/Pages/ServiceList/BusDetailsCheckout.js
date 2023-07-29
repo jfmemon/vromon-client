@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const BusDetailsCheckout = () => {
     const { user, busServiceDetails } = useContext(AuthContext);
-    const {id} = useParams();
+    const { id } = useParams();
     const name = busServiceDetails?.name;
     const img = busServiceDetails?.img;
     const from = busServiceDetails?.from;
@@ -57,7 +58,13 @@ const BusDetailsCheckout = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('Ticket booked successfully.');
+                    Swal.fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Ticket booked successfully.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                     form.reset();
                 }
             })

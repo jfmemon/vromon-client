@@ -18,7 +18,7 @@ const HotelBookings = () => {
     return (
         <div>
             <h3 className='text-2xl text-warning font-semibold p-5'>Hotels Booking Information</h3>
-            <div className="overflow-x-auto">
+            <div className="sm:overflow-x-auto">
                 <table className="table">
                     <thead>
                         <tr>

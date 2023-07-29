@@ -18,7 +18,7 @@ const AboutUs = () => {
                                         <path
                                             d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z">
                                         </path>
-                                    </svg> Successfully Providing business solutions from 25 years
+                                    </svg> Successfully providing favor to tourists from 25 years
                                 </p>
                             </div>
                         </div>
@@ -33,10 +33,6 @@ const AboutUs = () => {
                         <p className="mb-6 text-base leading-7 text-gray-500 dark:text-gray-400">
                             We can help you find and book flights to your desired destinations. You have access to flight schedules, prices, and different airlines, allowing you to provide options that suit your preferences and budget. Accommodation arrangements: We can assist in booking hotel rooms, resorts, vacation rentals, or other types of accommodation according to your needs and preferences. Vacation packages: Many travel agencies offer pre-designed vacation packages that include flights, accommodations, and sometimes additional services like tours.
                         </p>
-                        <a href="/"
-                            className="px-4 py-2 text-gray-100 bg-blue-500 rounded dark:bg-blue-400 dark:hover:bg-blue-500 hover:bg-blue-600">
-                            Learn more
-                        </a>
                     </div>
                 </div>
             </div>
