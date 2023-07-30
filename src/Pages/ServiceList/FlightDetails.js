@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const FlightDetails = ({ service, flightBookNowClick }) => {
     const { name, img, from, to, depurtureTime, arrivalTime, price } = service;

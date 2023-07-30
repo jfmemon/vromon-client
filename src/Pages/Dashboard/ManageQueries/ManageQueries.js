@@ -1,5 +1,3 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { FaTrashAlt } from 'react-icons/fa';
 

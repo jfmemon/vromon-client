@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const signup = (name, email, password) => {
+    const signup = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
@@ -36,16 +36,15 @@ const AuthProvider = ({ children }) => {
     const emailVerify = () => {
         return sendEmailVerification(auth.currentUser);
     }
-    
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            if(currentUser) {
-                axios.post('http://localhost:5000/jwt', {email: currentUser.email}) 
-                .then(data => {
-                    // console.log(data);
-                    localStorage.setItem('access-token', data.data.token)
-                })
+            if (currentUser) {
+                axios.post('https://vromon-server-roan.vercel.app/jwt', { email: currentUser.email })
+                    .then(data => {
+                        localStorage.setItem('access-token', data.data.token)
+                    })
             }
 
             else {

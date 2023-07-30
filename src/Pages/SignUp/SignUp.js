@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import { Link, useNavigate } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
-import { sendEmailVerification } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
-    const { signup, emailVerify } = useContext(AuthContext);
+    const { signup } = useContext(AuthContext);
     const [user, setUser] = useState([]);
 
     // const verification = () => toast('Please check your email and verify your email.');
@@ -36,20 +34,17 @@ const SignUp = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    Swal.fire(
-                        'Registration successful..!'
-                      )
+                    Swal.fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Login successful.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     event.target.reset();
                 }
             })
     }
-
-    // const emailVerification = () => {
-    //     emailVerify()
-    //         .then(() => {
-    //             verification();
-    //         })
-    // }
 
     const handleInput = event => {
         event.preventDefault();
@@ -85,7 +80,7 @@ const SignUp = () => {
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn btn-warning" type="submit" value="Sign Up" />
-                            
+
                         </div>
                         <div>
                             <p><small>Already have an account? <Link to="/login" className='text-warning'>Login</Link></small></p>

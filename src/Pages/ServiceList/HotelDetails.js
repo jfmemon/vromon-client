@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import React from 'react';
 
 const HotelDetails = ({ service, hotelBookNowClick }) => {
     const { img, title, details, price } = service;
