@@ -45,7 +45,7 @@ const Dashboard = () => {
                             <>
                                 <li><Link to="/dashboard/userHome"><FaHome />User Home</Link></li>
                                 <li><Link to="/dashboard/hotelBookings"><FaHotel /> Booked Hotels</Link></li>
-                                <li><Link to="/dashboard/users"><FaUser></FaUser> User</Link></li>
+                                <li><Link to="/dashboard/users"><FaUser></FaUser> My Info</Link></li>
                                 <li><Link to="/dashboard/queries"><FaMailBulk></FaMailBulk> Query Info</Link></li>
                                 <li><Link to="/dashboard/busTicketBookings"><FaBus></FaBus> Booked Bus Tickets</Link></li>
                                 <li><Link to="/dashboard/flightBookings"><FaPlane></FaPlane> Booked Flight Tickets</Link></li>
@@ -59,27 +59,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
-/* <div className="drawer-side z-10">
-                    <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-                        {
-                            isAdmin ? <>
-                                <li><Link to="/adminDashboard"> <FaHome></FaHome> Admin Home</Link></li>
-                                <li><Link to="/adminDashboard/allUsers"><FaUsers></FaUsers> Manage Users</Link></li>
-                                <li><Link to="/adminDashboard/manageHotelBookings"><FaHotel></FaHotel> Manage Hotels</Link></li>
-                                <li><Link to="/adminDashboard/manageQueries"><FaMailBulk></FaMailBulk> Manage Query Info</Link></li>
-                                <li><Link to="/adminDashboard/manageBusTicketBookings"><FaBus></FaBus> Manage Bus Tickets</Link></li>
-                                <li><Link to="/adminDashboard/manageFlightBookings"><FaPlane></FaPlane> Manage Flight Tickets</Link></li>
-                            </> : <>
-                                <li><Link to="/userDashboard"><FaHome></FaHome> Dashboard Home</Link></li>
-                                <li><Link to="/userDashboard/hotelBookings"><FaHotel></FaHotel> Booked Hotels</Link></li>
-                                <li><Link to="/userDashboard/users"><FaUser></FaUser> User</Link></li>
-                                <li><Link to="/userDashboard/queries"><FaMailBulk></FaMailBulk> Query Info</Link></li>
-                                <li><Link to="/userDashboard/busTicketBookings"><FaBus></FaBus> Booked Bus Tickets</Link></li>
-                                <li><Link to="/userDashboard/flightBookings"><FaPlane></FaPlane> Booked Flight Tickets</Link></li>
-                            </>
-                        }
-                    </ul>
-                </div> */

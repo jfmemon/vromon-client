@@ -13,6 +13,7 @@ const ContactsInfo = () => {
             return data;
         }
     })
+    
     return (
         <div>
             <h3 className='text-2xl text-warning font-semibold p-5'>Your queries</h3>

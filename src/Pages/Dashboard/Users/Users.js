@@ -1,19 +1,23 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Users = () => {
     const { user } = useContext(AuthContext);
-    const url = `https://vromon-server-roan.vercel.app/users?email=${user.email}`;
+    const [users, setUsers] = useState({});
+    console.log(users)
+    // const userEmail = user.email;
+    // const url = `https://vromon-server-roan.vercel.app/users/${user?.email}`;
 
-    const { data: users = [] } = useQuery({
-        queryKey: ['users', user.email],
-        queryFn: async () => {
-            const res = await fetch(url);
-            const data = await res.json();
-            return data;
-        }
-    })
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setUsers(data)
+            })
+    }, [])
+
 
     return (
         <div>
@@ -25,21 +29,28 @@ const Users = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Password</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {
+                            <tr className="hover">
+                                <th></th>
+                                <td>{users.name}</td>
+                                <td>{users.email}</td>
+                            </tr>
+                        }
+                    </tbody>
+                    {/* <tbody>
                         {
                             users.map((user, i) =>
                                 <tr className="hover">
                                     <th>{i + 1}</th>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
-                                    <td>{user.password}</td>
                                 </tr>
                             )
                         }
-                    </tbody>
+                    </tbody> */}
                 </table>
             </div>
         </div>
