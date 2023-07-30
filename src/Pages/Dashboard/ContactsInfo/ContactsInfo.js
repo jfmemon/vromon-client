@@ -20,7 +20,7 @@ const ContactsInfo = () => {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>#</th>
                             <th>Email</th>
                             <th>Subject</th>
                             <th>Message</th>
