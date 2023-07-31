@@ -7,7 +7,7 @@ const Users = () => {
     // console.log(users)
 
     useEffect(() => {
-        fetch(`http://vromon-server-roan.vercel.app/users/${user.email}`)
+        fetch(`https://vromon-server-roan.vercel.app/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setUsers(data)
