@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const ContactUs = () => {
     const {user} = useContext(AuthContext);
@@ -17,7 +18,13 @@ const ContactUs = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('Message sent successfully.');
+                    Swal.fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Message sent successfully.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     event.target.reset();
                 }
             })
