@@ -3,16 +3,24 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Users = () => {
     const { user } = useContext(AuthContext);
-    const [users, setUsers] = useState({});
-    console.log(users)
+    const [users, setUsers] = useState(null);
+    // console.log(users)
 
     useEffect(() => {
-        fetch(`http://vromon-server-roan.vercel.app/users/${user?.email}`)
+        fetch(`http://vromon-server-roan.vercel.app/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setUsers(data)
             })
-    }, [])
+    }, [user.email])
+
+    if (users === null) {
+        return (
+            <div>
+                <progress className='progress w-56'></progress>
+            </div>
+        )
+    }
 
 
     return (
@@ -28,13 +36,11 @@ const Users = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            <tr className="hover">
-                                <th></th>
-                                <td>{users.name}</td>
-                                <td>{users.email}</td>
-                            </tr>
-                        }
+                        <tr className="hover">
+                            <th></th>
+                            <td>{users.name}</td>
+                            <td>{users.email}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
