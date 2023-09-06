@@ -1,11 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const { signup } = useContext(AuthContext);
     const [user, setUser] = useState([]);
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/';
+                                                
 
     // const verification = () => toast('Please check your email and verify your email.');
 
@@ -41,6 +46,7 @@ const SignUp = () => {
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    navigate(from);
                     event.target.reset();
                 }
             })
